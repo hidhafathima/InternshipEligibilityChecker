@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internship Eligibility Checker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h3 {
+            color: #444;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Internship Eligibility Checker</h1>
+
+    <form method="POST">
+
+        <!-- Student Information Section -->
+        <h3>Student Information</h3>
+
+        <label>Student Name</label>
+        <input type="text" name="name" required>
+
+        <label>CGPA</label>
+        <input type="number" step="0.01" name="cgpa" required>
+
+        <label>Year of Study</label>
+        <input type="number" name="year" required>
+
+        <label>Branch</label>
+        <input type="text" name="branch" required>
+
+        <!-- Skills Section -->
+        <h3>Skills</h3>
+
+        <div class="checkbox-group">
+            <input type="checkbox" name="skills" value="Python"> Python <br>
+
+            <input type="checkbox" name="skills" value="Java"> Java <br>
+
+            <input type="checkbox" name="skills" value="SQL"> SQL <br>
+
+            <input type="checkbox" name="skills" value="HTML"> HTML <br>
+
+            <input type="checkbox" name="skills" value="CSS"> CSS <br>
+
+            <input type="checkbox" name="skills" value="React"> React
+        </div>
+
+        <label>Other Skills (Optional)</label>
+        <input type="text" name="other_skills">
+
+        <!-- Career Information Section -->
+        <h3>Career Information</h3>
+
+        <label>GitHub Profile URL</label>
+        <input type="url" name="github">
+
+        <label>Preferred Internship Type</label>
+        <select name="internship_type">
+            <option>Web Development</option>
+            <option>Python Development</option>
+            <option>Data Science</option>
+            <option>Machine Learning</option>
+            <option>Cyber Security</option>
+        </select>
+
+        <button type="submit">
+            Check Eligibility
+        </button>
+
+    </form>
+
+    <!-- Display Result -->
+    {% if result %}
+    <div class="result">
+        {{ result }}
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
