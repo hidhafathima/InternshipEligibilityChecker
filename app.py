@@ -10,6 +10,7 @@ app = Flask(__name__)
 def index():
 
     result = ""
+    student_data=None
 
     # Run when form is submitted
     if request.method == "POST":
@@ -42,7 +43,23 @@ def index():
         else:
             result = "Currently Not Eligible for Internship"
 
-    return render_template("index.html", result=result)
+
+        student_data={
+            "name":name,
+            "cgpa":cgpa,
+            "year":year,
+            "branch":branch,
+            "skills":skills,
+            "other_skills":other_skills,
+            "github":github,
+            "internship_type":internship_type
+        }
+
+    return render_template(
+          "index.html",
+          result=result,
+          student_data=student_data
+          )
 
 
 # Run application

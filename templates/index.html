@@ -60,6 +60,13 @@
             font-weight: bold;
             color: blue;
         }
+
+        .report{
+            margin-top:20px;
+            padding:15px;
+            border-radius:8px;
+            background:#f0f8ff;
+        }
     </style>
 </head>
 
@@ -133,6 +140,44 @@
         {{ result }}
     </div>
     {% endif %}
+
+    {% if student_data %}
+
+    <div class="report">
+
+    <h2>Student Eligibility Report</h2>
+
+    <p><strong>Name:</strong> {{ student_data.name }}</p>
+
+    <p><strong>CGPA:</strong> {{ student_data.cgpa }}</p>
+
+    <p><strong>Year:</strong> {{ student_data.year }}</p>
+
+    <p><strong>Branch:</strong> {{ student_data.branch }}</p>
+
+    <p>
+        <strong>Skills:</strong>
+        {{ student_data.skills | join(', ') }}
+    </p>
+
+    <p>
+        <strong>Other Skills:</strong>
+        {{ student_data.other_skills }}
+    </p>
+
+    <p>
+        <strong>GitHub:</strong>
+        {{ student_data.github }}
+    </p>
+
+    <p>
+        <strong>Preferred Internship:</strong>
+        {{ student_data.internship_type }}
+    </p>
+
+</div>
+
+{% endif %}
 
 </div>
 
